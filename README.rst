@@ -40,7 +40,7 @@ As a standalone package
 .. code-block:: python
 
     from param_store import EC2ParameterStore
-    from param_store interpolate_dict
+    from param_store import interpolate_dict
 
     data = {
         'key': 'my-secret-#{parameter-1}'
