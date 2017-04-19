@@ -1,3 +1,5 @@
+import re
+
 from setuptools import find_packages, setup
 
 install_requires = [
@@ -23,11 +25,15 @@ tests_require = [
     'flake8-debugger==1.4.0',
 ]
 
+with open('README.rst') as fh:
+    long_description = re.sub(
+        '^.. start-no-pypi.*^.. end-no-pypi', '', fh.read(), flags=re.M | re.S)
+
 setup(
     name='param-store',
     version='0.0.1',
     description="Parameter store for secrets",
-    long_description=open('README.rst', 'r').read(),
+    long_description=long_description,
     url='https://github.com/labd/python-param-store',
     author="Lab Digital B.V.",
     author_email="opensource@labdigital.nl",

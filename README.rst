@@ -8,17 +8,21 @@ It is designed to be pluggable so that stores can be created for e.g. Vault or A
 A use-case is to store secrets in the EC2 parameter store and resolve them automatically.
 
 
+.. start-no-pypi
+
 Status
 ======
-.. image:: https://travis-ci.org/labd/param-store.svg?branch=master
-    :target: https://travis-ci.org/labd/param-store
+.. image:: https://travis-ci.org/LabD/param-store.svg?branch=master
+    :target: https://travis-ci.org/LabD/param-store
 
-.. image:: http://codecov.io/github/labd/param-store/coverage.svg?branch=master
-    :target: http://codecov.io/github/labd/param-store?branch=master
+.. image:: http://codecov.io/github/LabD/param-store/coverage.svg?branch=master
+    :target: http://codecov.io/github/LabD/param-store?branch=master
     
 .. image:: https://img.shields.io/pypi/v/param-store.svg
     :target: https://pypi.python.org/pypi/param-store/
 
+
+.. end-no-pypi
 
 Installation
 ============
