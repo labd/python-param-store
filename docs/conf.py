@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# django-environ-stores documentation build configuration file, created by
+# python-param-store documentation build configuration file, created by
 # sphinx-quickstart on Wed Aug 10 17:06:14 2016.
 #
 # This file is execfile()d with the current directory set to its
@@ -48,7 +48,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'django-environ-stores'
+project = u'python-param-store'
 copyright = u'Y, <a href="https://www.mvantellingen.nl/">Michael van Tellingen</a>'
 author = u'Lab Digital B.V.'
 
@@ -127,7 +127,7 @@ html_theme = 'alabaster'
 html_theme_options = {
     'github_user': 'labd',
     'github_banner': True,
-    'github_repo': 'django-environ-stores',
+    'github_repo': 'python-param-store',
     'travis_button': True,
     'codecov_button': True,
     'analytics_id': 'UA-75907833-X',
@@ -139,7 +139,7 @@ html_theme_options = {
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-# html_title = u'django-environ-stores v0.1.1'
+# html_title = u'python-param-store v0.1.1'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
@@ -272,7 +272,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'param_store.tex', u'django-environ-stores Documentation',
+    (master_doc, 'param_store.tex', u'python-param-store Documentation',
      u'Lab Digital B.V.', 'manual'),
 ]
 
@@ -314,7 +314,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'param_store', u'django-environ-stores Documentation',
+    (master_doc, 'param_store', u'python-param-store Documentation',
      [author], 1)
 ]
 
@@ -329,7 +329,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'param_store', u'django-environ-stores Documentation',
+    (master_doc, 'param_store', u'python-param-store Documentation',
      author, 'param_store', 'One line description of project.',
      'Miscellaneous'),
 ]
