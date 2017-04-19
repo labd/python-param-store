@@ -10,11 +10,11 @@ A use-case is to store secrets in the EC2 parameter store and resolve them autom
 
 Status
 ======
-.. image:: https://travis-ci.org/mvantellingen/param-store.svg?branch=master
-    :target: https://travis-ci.org/mvantellingen/param-store
+.. image:: https://travis-ci.org/labd/param-store.svg?branch=master
+    :target: https://travis-ci.org/labd/param-store
 
-.. image:: http://codecov.io/github/mvantellingen/param-store/coverage.svg?branch=master
-    :target: http://codecov.io/github/mvantellingen/param-store?branch=master
+.. image:: http://codecov.io/github/labd/param-store/coverage.svg?branch=master
+    :target: http://codecov.io/github/labd/param-store?branch=master
     
 .. image:: https://img.shields.io/pypi/v/param-store.svg
     :target: https://pypi.python.org/pypi/param-store/
