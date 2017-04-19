@@ -20,7 +20,7 @@ deps:
   - codecov
 
 install:
-  - pip install tox codecov
+  - pip install -U pip tox codecov
 
 script:
   - tox -e $TOXENV
