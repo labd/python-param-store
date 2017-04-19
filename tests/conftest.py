@@ -1,19 +1,5 @@
-from django.conf import settings
+import boto3
 
 
 def pytest_configure():
-    settings.configure(
-        MIDDLEWARE_CLASSES=[],
-        CACHES={
-            'default': {
-                'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-                'LOCATION': 'unique-snowflake',
-            }
-        },
-        DATABASES={
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': 'db.sqlite',
-            },
-        }
-    )
+    boto3.setup_default_session(region_name='eu-west-1')
