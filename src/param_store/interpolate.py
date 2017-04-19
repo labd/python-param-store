@@ -13,23 +13,23 @@ __all__ = [
 
 def interpolate_dict(raw_values, store):
     """Interpolate dictionary values
-    
+
     DATABASE_URL=postgresql:://user::#{dbpassword}/127.0.0.1/db
-    
+
     :param raw_values: The values to resolv
-    :type raw_values: The 
+    :type raw_values: The
     :param store: The store to use for resolving parameters
     :type store: param_store.stores.BaseStore
-    
+
     :rtype: dict
-    
+
     """
     parameters_per_key = {}
     required_parameters = []
 
     # Find parameters to retrieve from the store
     for key, value in raw_values.items():
-        if isinstance(value, six.text_type):
+        if isinstance(value, six.string_types):
             matches = _re_param_template.findall(value)
             parameters_per_key[key] = matches
             required_parameters.extend(matches)

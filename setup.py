@@ -13,6 +13,7 @@ tests_require = [
     'coverage==.4.2',
     'pytest==3.0.5',
     'moto',
+    'mock',
     'django-environ<0.4.2',
 
     # Linting
