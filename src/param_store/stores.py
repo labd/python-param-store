@@ -18,11 +18,13 @@ class EC2ParameterStore(BaseStore):
 
     def load_values(self, items):
         """Load the parameters from the AWS Parameter Store
-        
+
         :parameter items: dict with target as key and parameter name as value
         :rtype: dict
-        
+
         """
+        if not items:
+            return {}
 
         data = self.client.get_parameters(
             Names=items,
