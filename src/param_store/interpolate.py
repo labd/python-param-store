@@ -4,7 +4,7 @@ import re
 import six
 
 
-_re_param_template = re.compile('#{([^}]+)}')
+_re_param_template = re.compile('%{([^}]+)}')
 
 __all__ = [
     'interpolate_dict',
@@ -14,7 +14,7 @@ __all__ = [
 def interpolate_dict(raw_values, store):
     """Interpolate dictionary values
 
-    DATABASE_URL=postgresql:://user::#{dbpassword}/127.0.0.1/db
+    DATABASE_URL=postgresql:://user::%{dbpassword}/127.0.0.1/db
 
     :param raw_values: The values to resolv
     :type raw_values: The
@@ -45,7 +45,7 @@ def interpolate_dict(raw_values, store):
         for param in key_params:
             if param in resolved_parameters:
                 value_str = value_str.replace(
-                    '#{%s}' % param, resolved_parameters[param])
+                    '%{{{}}}'.format(param), resolved_parameters[param])
         result[key] = value_str
 
     return result

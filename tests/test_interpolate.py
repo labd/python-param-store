@@ -8,7 +8,7 @@ from .utils import MockStore
 def test_interpolate_dict():
     my_dict = {
         'TEST_VAR': 'ok',
-        'TEST_DECRYPT': 'prefix-#{key-name}-data-#{missing}'
+        'TEST_DECRYPT': 'prefix-%{key-name}-data-%{missing}'
     }
 
     store = MockStore({
@@ -18,6 +18,6 @@ def test_interpolate_dict():
 
     assert result == {
         'TEST_VAR': 'ok',
-        'TEST_DECRYPT': 'prefix-secret-data-#{missing}'
+        'TEST_DECRYPT': 'prefix-secret-data-%{missing}'
     }
 
