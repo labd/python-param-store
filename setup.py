@@ -21,7 +21,7 @@ tests_require = [
     # Linting
     'isort==4.2.5',
     'flake8==3.0.3',
-    'flake8-blind-except==0.1.1',
+    'flake8-blind-except==0.1.2',
     'flake8-debugger==1.4.0',
 ]
 
@@ -31,7 +31,7 @@ with open('README.rst') as fh:
 
 setup(
     name='param-store',
-    version='0.1.1',
+    version='0.1.2',
     description="Parameter store for secrets",
     long_description=long_description,
     url='https://github.com/labd/python-param-store',
