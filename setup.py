@@ -14,15 +14,16 @@ docs_require = [
 tests_require = [
     'coverage==.4.2',
     'pytest==3.0.5',
-    'moto',
+    'moto==1.0.0',
     'mock',
     'django-environ<0.4.2',
 
     # Linting
     'isort==4.2.5',
     'flake8==3.0.3',
-    'flake8-blind-except==0.1.2',
+    'flake8-blind-except==0.1.1',
     'flake8-debugger==1.4.0',
+    'flake8-imports==0.1.1',
 ]
 
 with open('README.rst') as fh:

@@ -2,7 +2,6 @@
 
 
 install:
-	pip install https://github.com/mvantellingen/moto/archive/ssm.zip
 	pip install -e .[docs,test]
 
 test:
