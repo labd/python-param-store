@@ -54,7 +54,8 @@ As a standalone package
 In combination with django-environ
 
 .. code-block:: python
-
+   
+    from environ import Env
     from param_store import EC2ParameterStore
     from param_store.contrib import resolve_django_environ
 
