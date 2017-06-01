@@ -43,7 +43,7 @@ As a standalone package
     from param_store import interpolate_dict
 
     data = {
-        'key': 'my-secret-#{parameter-1}'
+        'key': 'my-secret-%{parameter-1}'
     }
 
     store = EC2ParameterStore()
