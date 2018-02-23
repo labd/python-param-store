@@ -3,4 +3,4 @@ from param_store.stores import *  # noqa
 
 __all__ = ['Env', 'EC2ParameterStore']
 
-__version__ = '0.1.2'
+__version__ = '0.2.0'
