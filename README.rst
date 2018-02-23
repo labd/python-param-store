@@ -17,7 +17,7 @@ Status
 
 .. image:: http://codecov.io/github/LabD/python-param-store/coverage.svg?branch=master
     :target: http://codecov.io/github/LabD/python-param-store?branch=master
-    
+
 .. image:: https://img.shields.io/pypi/v/param-store.svg
     :target: https://pypi.python.org/pypi/param-store/
 
@@ -43,7 +43,7 @@ As a standalone package
     from param_store import interpolate_dict
 
     data = {
-        'key': 'my-secret-%{parameter-1}'
+        'key': 'my-secret-{{ parameter-1 }}'
     }
 
     store = EC2ParameterStore()
@@ -54,7 +54,7 @@ As a standalone package
 In combination with django-environ
 
 .. code-block:: python
-   
+
     from environ import Env
     from param_store import EC2ParameterStore
     from param_store.contrib import resolve_django_environ
