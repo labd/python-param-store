@@ -1,3 +1,8 @@
+0.2.1 (2018-05-14)
+==================
+- Handle more than 10 parameters since AWS doesn't allow us to fetch more in a
+  single call
+
 0.2.0 (2018-02-23)
 ==================
 - Replace the syntax for the identifiers, use {{ KEY }} instead of %{KEY}. This
