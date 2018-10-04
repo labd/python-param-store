@@ -36,7 +36,7 @@ with open('README.rst') as fh:
 
 setup(
     name='param-store',
-    version='0.2.1',
+    version='0.2.2',
     description="Parameter store for secrets",
     long_description=long_description,
     url='https://github.com/labd/python-param-store',
