@@ -54,9 +54,9 @@ class AzureVaultParameterStore(BaseStore):
         from azure.keyvault import KeyVaultClient, KeyVaultAuthentication
         from os import getenv
 
-        self.vault_id = getenv("AZURE_VAULT_ID")
-        self.client_id = getenv("AZURE_APP_ID")
-        self.tenant_id = getenv("AZURE_TENANT_ID")
+        self.vault_id = getenv("AZURE_VAULT_ID", None)
+        self.client_id = getenv("AZURE_APP_ID", None)
+        self.tenant_id = getenv("AZURE_TENANT_ID", None)
 
         # create an adal authentication context
         auth_context = adal.AuthenticationContext(
@@ -76,7 +76,7 @@ class AzureVaultParameterStore(BaseStore):
         from azure.keyvault.models import KeyVaultErrorException
         from azure.keyvault import KeyVaultId
 
-        if not items:
+        if not items or not self.vault_id:
             return {}
 
         result = {}
