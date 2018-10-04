@@ -7,6 +7,10 @@ install_requires = [
     'six>=1.1',
  ]
 
+azure_require = [
+    'azure-keyvault',
+]
+
 docs_require = [
     'sphinx>=1.4.0',
 ]
@@ -41,6 +45,7 @@ setup(
     install_requires=install_requires,
     tests_require=tests_require,
     extras_require={
+        'azure': azure_require,
         'docs': docs_require,
         'test': tests_require,
     },

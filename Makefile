@@ -2,7 +2,7 @@
 
 
 install:
-	pip install -e .[docs,test]
+	pip install -e .[docs,test,azure]
 
 test:
 	py.test
