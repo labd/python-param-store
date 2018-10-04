@@ -47,28 +47,52 @@ class EC2ParameterStore(BaseStore):
         return result
 
 
+class AzureVaultConfigurationException(Exception):
+    pass
+
+
 class AzureVaultParameterStore(BaseStore):
 
     def __init__(self):
-        import adal
         from azure.keyvault import KeyVaultClient, KeyVaultAuthentication
         from os import getenv
 
         self.vault_id = getenv("AZURE_VAULT_ID", None)
-        self.client_id = getenv("AZURE_APP_ID", None)
         self.tenant_id = getenv("AZURE_TENANT_ID", None)
 
-        # create an adal authentication context
-        auth_context = adal.AuthenticationContext(
-            'https://login.microsoftonline.com/%s' % self.tenant_id)
+        self.app_id = getenv("AZURE_APP_ID", None)
+        self.client_id = getenv("AZURE_CLIENT_ID", None)
+        self.secret = getenv("AZURE_SECRET", None)
 
-        def auth_callback(server, resource, scope):
-            user_code_info = auth_context.acquire_user_code(resource, self.client_id)
+        if self.app_id:
+            import adal
 
-            token = auth_context.acquire_token_with_device_code(resource=resource,
-                                                                client_id=self.client_id,
-                                                                user_code_info=user_code_info)
-            return token['token_type'], token['access_token']
+            # create an adal authentication context
+            auth_context = adal.AuthenticationContext(
+                'https://login.microsoftonline.com/%s' % self.tenant_id)
+
+            def auth_callback(server, resource, scope):
+                user_code_info = auth_context.acquire_user_code(resource, self.app_id)
+
+                token = auth_context.acquire_token_with_device_code(resource=resource,
+                                                                    client_id=self.app_id,
+                                                                    user_code_info=user_code_info)
+                return token['token_type'], token['access_token']
+        elif self.client_id and self.secret:
+            from azure.common.credentials import ServicePrincipalCredentials
+
+            def auth_callback(server, resource, scope):
+                credentials = ServicePrincipalCredentials(
+                    client_id=self.client_id,
+                    secret=self.secret,
+                    tenant=self.tenant_id,
+                    resource="https://vault.azure.net"
+                )
+                token = credentials.token
+                return token['token_type'], token['access_token']
+        else:
+            raise AzureVaultConfigurationException("Either set AZURE_APP_ID or "
+                                                   "(AZURE_CLIENT_ID and AZURE_SECRET)")
 
         self.client = KeyVaultClient(KeyVaultAuthentication(auth_callback))
 
