@@ -7,6 +7,10 @@ install_requires = [
     'six>=1.1',
  ]
 
+azure_require = [
+    'azure-keyvault',
+]
+
 docs_require = [
     'sphinx>=1.4.0',
 ]
@@ -32,7 +36,7 @@ with open('README.rst') as fh:
 
 setup(
     name='param-store',
-    version='0.2.1',
+    version='0.2.2',
     description="Parameter store for secrets",
     long_description=long_description,
     url='https://github.com/labd/python-param-store',
@@ -41,6 +45,7 @@ setup(
     install_requires=install_requires,
     tests_require=tests_require,
     extras_require={
+        'azure': azure_require,
         'docs': docs_require,
         'test': tests_require,
     },
