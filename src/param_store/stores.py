@@ -1,6 +1,10 @@
+import os
 from itertools import islice
 
-__all__ = ["EC2ParameterStore"]
+__all__ = [
+    "EC2ParameterStore",
+    "FileParameterStore",
+]
 
 
 class BaseStore(object):
@@ -15,7 +19,7 @@ class EC2ParameterStore(BaseStore):
         self.client = boto3.client("ssm")
 
     def load_values(self, items):
-        """Load the parameters from the AWS Parameter Store
+        """Load the parameters from the AWS Parameter Store.
 
         :parameter items: list with keys
         :rtype: dict
@@ -37,4 +41,25 @@ class EC2ParameterStore(BaseStore):
                 key = parameter["Name"]
                 value = parameter["Value"]
                 result[key] = value
+        return result
+
+
+class FileParameterStore(BaseStore):
+    def __init__(self, path: str):
+        self.path = path
+
+    def load_values(self, items):
+        """Load the parameters from a local path."""
+        if not os.path.isdir(self.path):
+            return {}
+
+        result = {}
+        for filename in os.listdir(self.path):
+            if filename not in items:
+                continue
+
+            full_path = os.path.join(self.path, filename)
+            if os.path.isfile(full_path):
+                result[filename] = open(full_path, "r").read()
+
         return result
