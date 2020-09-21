@@ -14,7 +14,7 @@ docs_require = [
 tests_require = [
     'coverage==.4.2',
     'pytest==3.0.5',
-    'moto==1.0.0',
+    'moto==1.3.16',
     'mock',
     'django-environ<0.4.2',
 
