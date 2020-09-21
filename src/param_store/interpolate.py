@@ -5,7 +5,10 @@ import six
 
 _re_param_template = re.compile(r"({{ \s* ([^(?:}})]+) \s* }})", re.VERBOSE)
 
-__all__ = ["interpolate_dict", "MissingParameterException"]
+__all__ = [
+    "interpolate_dict",
+    "MissingParameterException",
+]
 
 
 class MissingParameterException(Exception):
