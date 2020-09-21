@@ -6,7 +6,7 @@ from param_store import EC2ParameterStore
 
 @moto.mock_ssm
 def test_ec2_parameter_store():
-    ssm = boto3.client('ssm')
+    ssm = boto3.client('ssm', region_name='eu-west-1')
     ssm.put_parameter(Name='key', Value='hoi', Type='SecureString')
     ssm.put_parameter(Name='second-key', Value='doei', Type='String')
 
@@ -33,7 +33,7 @@ def test_ec2_parameter_store_many():
         '/path/key/j': 'j',
         '/path/key/k': 'k',
     }
-    ssm = boto3.client('ssm')
+    ssm = boto3.client('ssm', region_name='eu-west-1')
     for key, value in data.items():
         ssm.put_parameter(Name=key, Value=value, Type='String')
 
