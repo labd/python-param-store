@@ -1,10 +1,7 @@
 import os
 from itertools import islice
 
-__all__ = [
-    "EC2ParameterStore",
-    "FileParameterStore",
-]
+__all__ = ["EC2ParameterStore", "FileParameterStore"]
 
 
 class BaseStore(object):
