@@ -3,12 +3,9 @@ import re
 
 import six
 
-_re_param_template = re.compile(r'({{ \s* ([^(?:}})]+) \s* }})', re.VERBOSE)
+_re_param_template = re.compile(r"({{ \s* ([^(?:}})]+) \s* }})", re.VERBOSE)
 
-__all__ = [
-    'interpolate_dict',
-    'MissingParameterException'
-]
+__all__ = ["interpolate_dict", "MissingParameterException"]
 
 
 class MissingParameterException(Exception):
@@ -54,8 +51,9 @@ def interpolate_dict(raw_values, store):
                 value_str = value_str.replace(variable, identifier_value)
             except KeyError:
                 raise MissingParameterException(
-                    "No parameter for identifier %r in %r" % (
-                        identifier, raw_values[key]))
+                    "No parameter for identifier %r in %r"
+                    % (identifier, raw_values[key])
+                )
 
         result[key] = value_str
     return result
