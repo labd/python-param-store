@@ -1,7 +1,14 @@
+0.2.2 (2020-09-21)
+==================
+ - Add github actions
+ - Add file parameter store to read secrets from a mount
+
+
 0.2.1 (2018-05-14)
 ==================
 - Handle more than 10 parameters since AWS doesn't allow us to fetch more in a
   single call
+
 
 0.2.0 (2018-02-23)
 ==================
