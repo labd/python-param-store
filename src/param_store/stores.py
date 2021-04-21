@@ -10,10 +10,13 @@ class BaseStore(object):
 
 
 class EC2ParameterStore(BaseStore):
-    def __init__(self):
+    def __init__(self, aws_config=None):
         import boto3
 
-        self.client = boto3.client("ssm")
+        if isinstance(aws_config, dict):
+            self.client = boto3.client("ssm", **aws_config)
+        else:
+            self.client = boto3.client("ssm")
 
     def load_values(self, items):
         """Load the parameters from the AWS Parameter Store.
