@@ -39,6 +39,23 @@ def test_ec2_parameter_store_many():
     assert result == data
 
 
+@moto.mock_ssm
+def test_ec2_parameter_store_different_parameters():
+    right_region_name = "eu-west-1"
+    key_wanted = "key-eu-weast-1"
+    ssm = boto3.client("ssm", region_name=right_region_name)
+    ssm.put_parameter(Name=key_wanted, Value="hoi", Type="SecureString")
+
+    store = EC2ParameterStore(aws_config={"region_name": "us-east-1"})
+    result = store.load_values([key_wanted])
+    assert key_wanted not in result
+
+    store = EC2ParameterStore(aws_config={"region_name": right_region_name})
+    result = store.load_values([key_wanted])
+    assert key_wanted in result
+    assert result == {key_wanted: "hoi"}
+
+
 def test_file_parameter_store(tmpdir):
     secret_path = tmpdir.mkdir("secrets")
     secret_path.join("key").write("hoi")

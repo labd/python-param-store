@@ -50,6 +50,25 @@ As a standalone package
     result = interpolate_dict(data, store)
     assert result[key] == 'my-secret-password'
 
+Using custom configuration parameters
+
+.. code-block:: python
+
+    from param_store import EC2ParameterStore
+    from param_store import interpolate_dict
+
+    data = {
+        'key': 'my-secret-{{ parameter-1 }}'
+    }
+
+    aws_config = {
+        "region_name": "us-east-1",
+        "aws_access_key_id": "YOUR_NEW_ACCESS_KEY"
+    }
+
+    store = EC2ParameterStore(aws_config=aws_config)
+    result = interpolate_dict(data, store)
+    assert result[key] == 'my-secret-password'
 
 In combination with django-environ
 
