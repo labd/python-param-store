@@ -6,19 +6,17 @@ from param_store import EC2ParameterStore, FileParameterStore
 
 @moto.mock_ssm
 def test_ec2_parameter_store():
-    region_name = "eu-west-1"
-    ssm = boto3.client("ssm", region_name=region_name)
+    ssm = boto3.client("ssm", region_name="eu-west-1")
     ssm.put_parameter(Name="key", Value="hoi", Type="SecureString")
     ssm.put_parameter(Name="second-key", Value="doei", Type="String")
 
-    store = EC2ParameterStore(aws_config={"region_name": region_name})
+    store = EC2ParameterStore()
     result = store.load_values(["key", "second-key", "non-existing-key"])
     assert result == {"key": "hoi", "second-key": "doei"}
 
 
 @moto.mock_ssm
 def test_ec2_parameter_store_many():
-    region_name = "eu-west-1"
     data = {
         "/path/key/a": "a",
         "/path/key/b": "b",
@@ -32,11 +30,11 @@ def test_ec2_parameter_store_many():
         "/path/key/j": "j",
         "/path/key/k": "k",
     }
-    ssm = boto3.client("ssm", region_name=region_name)
+    ssm = boto3.client("ssm", region_name="eu-west-1")
     for key, value in data.items():
         ssm.put_parameter(Name=key, Value=value, Type="String")
 
-    store = EC2ParameterStore(aws_config={"region_name": region_name})
+    store = EC2ParameterStore()
     result = store.load_values(list(data.keys()))
     assert result == data
 
