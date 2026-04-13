@@ -13,7 +13,7 @@ docs_require = [
 
 tests_require = [
     "coverage==5.3",
-    "pytest==3.0.5",
+    "pytest==9.0.3",
     "moto==1.3.16",
     "mock",
     "django-environ<0.4.2",
