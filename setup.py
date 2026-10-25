@@ -13,8 +13,8 @@ docs_require = [
 
 tests_require = [
     "coverage==5.3",
-    "pytest==3.0.5",
-    "moto==1.3.16",
+    "pytest==9.0.3",
+    "moto[ssm]==5.2.4",
     "mock",
     "django-environ<0.4.2",
     # Linting
@@ -38,6 +38,7 @@ setup(
     url="https://github.com/labd/python-param-store",
     author="Lab Digital B.V.",
     author_email="opensource@labdigital.nl",
+    python_requires=">=3.10",
     install_requires=install_requires,
     tests_require=tests_require,
     extras_require={
@@ -61,12 +62,8 @@ setup(
         "Framework :: Django :: 1.11",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.10",
     ],
     zip_safe=False,
 )

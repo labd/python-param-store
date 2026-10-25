@@ -4,7 +4,7 @@ import moto
 from param_store import EC2ParameterStore, FileParameterStore
 
 
-@moto.mock_ssm
+@moto.mock_aws
 def test_ec2_parameter_store():
     ssm = boto3.client("ssm", region_name="eu-west-1")
     ssm.put_parameter(Name="key", Value="hoi", Type="SecureString")
@@ -15,7 +15,7 @@ def test_ec2_parameter_store():
     assert result == {"key": "hoi", "second-key": "doei"}
 
 
-@moto.mock_ssm
+@moto.mock_aws
 def test_ec2_parameter_store_many():
     data = {
         "/path/key/a": "a",
