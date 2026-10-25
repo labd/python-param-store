@@ -18,11 +18,7 @@ tests_require = [
     "mock",
     "django-environ<0.4.2",
     # Linting
-    "isort==4.2.5",
-    "flake8==3.0.3",
-    "flake8-blind-except==0.1.1",
-    "flake8-debugger==1.4.0",
-    "flake8-imports==0.1.1",
+    "ruff",
 ]
 
 with open("README.rst") as fh:
