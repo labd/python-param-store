@@ -15,9 +15,6 @@ Status
 .. image:: https://travis-ci.org/LabD/python-param-store.svg?branch=master
     :target: https://travis-ci.org/LabD/python-param-store
 
-.. image:: http://codecov.io/github/LabD/python-param-store/coverage.svg?branch=master
-    :target: http://codecov.io/github/LabD/python-param-store?branch=master
-
 .. image:: https://img.shields.io/pypi/v/param-store.svg
     :target: https://pypi.python.org/pypi/param-store/
 
