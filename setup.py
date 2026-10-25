@@ -4,7 +4,6 @@ from setuptools import find_packages, setup
 
 install_requires = [
     "boto3",
-    "six>=1.1",
 ]
 
 docs_require = [
@@ -51,11 +50,8 @@ setup(
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
         "Framework :: Django",
-        "Framework :: Django :: 1.7",
-        "Framework :: Django :: 1.8",
-        "Framework :: Django :: 1.9",
-        "Framework :: Django :: 1.10",
-        "Framework :: Django :: 1.11",
+        "Framework :: Django :: 4.2",
+        "Framework :: Django :: 5.2",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",

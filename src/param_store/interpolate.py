@@ -1,8 +1,6 @@
 import copy
 import re
 
-import six
-
 _re_param_template = re.compile(r"({{ \s* ([^(?:}})]+) \s* }})", re.VERBOSE)
 
 __all__ = ["interpolate_dict", "MissingParameterException"]
@@ -30,7 +28,7 @@ def interpolate_dict(raw_values, store):
 
     # Find parameters to retrieve from the store (new style)
     for key, value in raw_values.items():
-        if isinstance(value, six.string_types):
+        if isinstance(value, str):
             matches = _re_param_template.findall(value)
             variables = {k: v.strip() for k, v in matches}
 
