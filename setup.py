@@ -38,7 +38,7 @@ setup(
     url="https://github.com/labd/python-param-store",
     author="Lab Digital B.V.",
     author_email="opensource@labdigital.nl",
-    python_requires=">=3.10",
+    python_requires=">=3.11",
     install_requires=install_requires,
     tests_require=tests_require,
     extras_require={
@@ -63,7 +63,10 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
+        "Programming Language :: Python :: 3.14",
     ],
     zip_safe=False,
 )
