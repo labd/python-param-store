@@ -53,3 +53,14 @@ In combination with django-environ
     env = Env()
     store = EC2ParameterStore()
     resolve_django_environ(env, store)
+
+Releasing
+=========
+
+Releases are managed with `changie <https://changie.dev>`_:
+
+1. Add a changelog entry to your pull request with ``changie new``.
+2. After merging to ``master``, a release pull request is opened (or updated)
+   automatically, with the new version and the updated ``CHANGELOG.md``.
+3. Merging the release pull request creates the GitHub release, which publishes
+   the package to PyPI.
