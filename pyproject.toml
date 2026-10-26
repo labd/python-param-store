@@ -1,3 +1,70 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "param-store"
+dynamic = ["version"]
+description = "Parameter store for secrets"
+readme = "README.rst"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Lab Digital B.V.", email = "opensource@labdigital.nl" }]
+requires-python = ">=3.11"
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Web Environment",
+  "Framework :: Django",
+  "Framework :: Django :: 4.2",
+  "Framework :: Django :: 5.2",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+]
+dependencies = ["boto3"]
+
+[project.urls]
+Homepage = "https://github.com/labd/python-param-store"
+
+[dependency-groups]
+dev = [{ include-group = "test" }]
+test = [
+  "coverage[toml]>=7.17.0",
+  "pytest>=9.1.1",
+  "moto[ssm]>=5.2.4",
+  "Django>=4.2",
+  "django-environ>=0.12.0",
+  "ruff>=0.17.2",
+]
+docs = ["sphinx>=1.4.0"]
+
+[tool.hatch.version]
+path = "src/param_store/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/param_store"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "README.rst", "LICENSE"]
+
+[tool.pytest.ini_options]
+minversion = "3.0"
+strict = true
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["param_store"]
+
+[tool.coverage.paths]
+source = ["src/param_store", ".venv/lib/python*/site-packages/param_store"]
+
+[tool.coverage.report]
+show_missing = true
+
 [tool.ruff]
 line-length = 88
 
